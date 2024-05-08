@@ -1,2 +1,2 @@
 # Programmers_CT
-![Uploading 스크린샷 2024-05-09 05.07.10.png…]()
+![image](https://github.com/Minseojeonn/Programmers_CT/assets/83704225/4a021b9f-fb34-4fea-a44a-7c7cac80c942)
