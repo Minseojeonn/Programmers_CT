@@ -2,5 +2,7 @@
 ![image](https://github.com/Minseojeonn/Programmers_CT/assets/83704225/4a021b9f-fb34-4fea-a44a-7c7cac80c942)
 
 
+# 프로그래머스 LV1, LV2 문제 ALL SOLVED(only python)
+
 심심할 때 코테 푸는 이상한 사람 ..
 이 되려는 사람
