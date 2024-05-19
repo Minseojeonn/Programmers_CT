@@ -1,5 +1,5 @@
 # Programmers_CT
-![image]![image](https://github.com/Minseojeonn/Programmers_CT/assets/83704225/413715db-c64e-4b16-820a-fca7a474093e)
+![image](https://github.com/Minseojeonn/Programmers_CT/assets/83704225/413715db-c64e-4b16-820a-fca7a474093e)
 
 
 
