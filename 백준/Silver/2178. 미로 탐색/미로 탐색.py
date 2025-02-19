@@ -11,7 +11,7 @@ for i in range(N):
 #항상 성립하기때문에, 예외처리 X
 dx = [0,0,1,-1]
 dy = [1,-1,0,0]
-def bfs(mapp):
+def dfs(mapp):
     stack = []
     visited = [[0]*K for _ in range(N)]    
     visited[0][0] = 1
@@ -27,4 +27,4 @@ def bfs(mapp):
                     visited[row+ddy][col+ddx] = 1
                     stack.append((row+ddy, col+ddx, cnt+1))
                   
-bfs(mapp)
+dfs(mapp)
