@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+
+#옵션, 열선 ..
+# 키워드 ..? 열선시트?
+SELECT ROUND(AVG(DAILY_FEE)) AS AVERAGE_FEE
+FROM CAR_RENTAL_COMPANY_CAR 
+WHERE CAR_TYPE='SUV'
