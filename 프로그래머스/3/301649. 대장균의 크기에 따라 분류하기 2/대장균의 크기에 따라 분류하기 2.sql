@@ -1,0 +1,12 @@
+-- 코드를 작성해주세요
+SELECT B.ID,  
+CASE WHEN a=4 THEN 'CRITICAL'
+  WHEN a=3 THEN 'HIGH'
+  WHEN a=2 THEN 'MEDIUM'
+  WHEN a=1 THEN 'LOW'
+END AS COLONY_NAME
+FROM (
+    SELECT ID, ntile(4) over (order by SIZE_OF_COLONY) as a 
+    FROM ECOLI_DATA
+) B
+ORDER BY B.ID ASC
