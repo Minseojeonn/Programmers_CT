@@ -1,21 +1,19 @@
-n=int(input())
+import sys
+n = int(sys.stdin.readline())
 
-dp=[0,1,1,1] # n을 만들 수 있는 최소 가지수
+# dp[i]는 i를 1로 만드는 최소 횟수
+dp = [0] * (n + 1)
 
-if n >= 4:
-    for i in range(4,n+1):
-        # 각 케이스를 구한 후, 가장 작은 것을 선택함 -> dp에 추가를 한다.
-        val1 = 1 + dp[i-1]
-        val2 = 1 + dp[i-1]
-        val3 = 1 + dp[i-1]
+for i in range(2, n + 1):
+    # 1. 일단 1을 빼는 경우 (가장 기본)
+    dp[i] = dp[i - 1] + 1
+    
+    # 2. 2로 나누어 떨어지면, 2로 나눈 경우와 비교해서 최솟값 갱신
+    if i % 2 == 0:
+        dp[i] = min(dp[i], dp[i // 2] + 1)
+        
+    # 3. 3으로 나누어 떨어지면, 3으로 나눈 경우와 비교
+    if i % 3 == 0:
+        dp[i] = min(dp[i], dp[i // 3] + 1)
 
-        if i%3==0:
-            val1 = 1 + dp[i//3]
-        if i%2==0:
-            val2 = 1 + dp[i//2]
-       
-        dp.append(min(val1,val2,val3))
-if n == 1:
-    print(0)
-else:
-    print(dp[n])
+print(dp[n])
