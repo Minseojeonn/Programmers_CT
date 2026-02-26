@@ -1,21 +1,20 @@
-import sys
-import copy
+num_size = int(input())
+dp = []
+triangle = []
+for i in range(1,num_size+1):
+    dp.append([0] * i)
+    
+for i in range(num_size):
+    triangle.append(list(map(int, input().split(" "))))
 
-H = int(sys.stdin.readline().strip())
+#choose = down, down right
+for i in range(num_size):
+    for jdx, j in enumerate(triangle[i]):
+        if jdx == 0:
+            dp[i][0] = dp[i-1][0] + triangle[i][0]
+        elif jdx == len(triangle[i])-1:
+            dp[i][jdx] = dp[i-1][-1] + triangle[i][jdx]
+        else:
+            dp[i][jdx] = max(dp[i-1][jdx] + triangle[i][jdx], dp[i-1][jdx-1] + triangle[i][jdx])
 
-tri = []
-drow = [1, 1]
-dcol = [0, 1]
-for i in range(H):
-    tri.append(list(map(int, sys.stdin.readline().split()))) 
-tri_save = copy.deepcopy(tri)
-
-for rowidx in range(H-1):
-    candidate = tri[rowidx]
-    for colidx, value in enumerate(candidate):
-        for dr, dc in zip(drow, dcol):
-            tri[rowidx+dr][colidx+dc] = max(tri[rowidx+dr][colidx+dc], tri_save[rowidx+dr][colidx+dc] + tri[rowidx][colidx])
-
-print(max(tri[-1]))
-#indexing은 양쪽다 -1임
-#항상 성립하기때문에, 예외처리 X
+print(max(dp[-1]))
