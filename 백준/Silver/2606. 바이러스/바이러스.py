@@ -1,30 +1,24 @@
-import sys
+num_computer = int(input())
+num_edges = int(input())
 
-#init point
-num_nodes = int(sys.stdin.readline())
-num_edges = int(sys.stdin.readline())
-
-#build edgedict    
-#bi-direct setting.
-edge_dict = {}
-for i in range(num_nodes+1):
-    edge_dict[i] = []
+edges = {}
+for i in range(num_computer+1):
+    edges[i] = []
 for i in range(num_edges):
-    src, dst = map(int, sys.stdin.readline().split())
-    edge_dict[src].append(dst)
-    edge_dict[dst].append(src)
+    fr, to = map(int, input().split())
+    edges[fr].append(to)
+    edges[to].append(fr)
 
-#not duplicated visited
-visited_dict = {}
-have_to_visit = [1]
-
-while have_to_visit:
-    next = have_to_visit.pop()
-    if next not in visited_dict:
-        visited_dict[next] = True
-        for connected in edge_dict[next]:    
-            have_to_visit.append(connected)
-        
-#exclude node 1
-print(len(visited_dict)-1)
-    
+stack = [1]
+visited = [0 for _ in range(num_computer+1)]
+visited[1] = 1
+visited_com = 0
+while stack:
+    next_com = stack.pop()
+    for cand_com in edges[next_com]:
+        if visited[cand_com] == 0:
+            visited[cand_com] = 1
+            stack.append(cand_com)
+            visited_com+=1
+            
+print(visited_com)
